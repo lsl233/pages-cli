@@ -17,11 +17,11 @@ gulp.task('html', function () {
     removeStyleLinkTypeAttributes: true,
     minifyJS: true,
     minifyCSS: true
-  };
+  }
   return gulp.src('src/**/*.html')
     .pipe(htmlmin(options))
-    .pipe(gulp.dest('dist'));
-});
+    .pipe(gulp.dest('dist'))
+})
 
 gulp.task('css', function () {
   const plugins = [
@@ -29,11 +29,11 @@ gulp.task('css', function () {
     cssnano({
       safe: true
     })
-  ];
+  ]
   return gulp.src('./src/**/*.css')
     .pipe(postcss(plugins))
     .pipe(gulp.dest('dist'));
-});
+})
 
 gulp.task('js', function () {
   return gulp.src('./src/**/*.js')
@@ -44,21 +44,21 @@ gulp.task('js', function () {
 gulp.task('img', function () {
   return gulp.src('./src/imgs/**/*')
     .pipe(gulp.dest('dist/imgs'))
-});
+})
 
 gulp.task('zip', function () {
   return gulp.src('dist/**/*')
     .pipe(zip('dist.zip'))
     .pipe(gulp.dest('./'))
   }
-);
+)
 
 gulp.task('remove:dist', function () {
   return del([
     './dist',
     './dist.zip'
-  ]);
-});
+  ])
+})
 
 gulp.task('dev', function () {
   browserSync.init({
