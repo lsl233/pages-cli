@@ -11,6 +11,10 @@ npm install
 ```
 
 ## 使用
+启动dev服务器，修改html，css，js后将自动更新
+```
+gulp dev
+```
 删除dist文件夹和压缩文件，压缩html、css和js文件到dist文件夹，再将dist压缩成zip文件
 ```
 gulp build
