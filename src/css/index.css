@@ -1,3 +1,7 @@
 body {
     text-align: center;
 }
+
+body h1 {
+  color: red;
+}

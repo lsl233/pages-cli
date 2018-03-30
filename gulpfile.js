@@ -62,8 +62,10 @@ gulp.task('remove:dist', function () {
 
 gulp.task('dev', function () {
   browserSync.init({
+    files: ['src/css/**/*.css', 'src/html/**/*.html', 'src/js/**/*.js'],
     server: {
-      baseDir: './'
+      baseDir: './src',
+      index: 'html/index.html',
     }
   })
 })
