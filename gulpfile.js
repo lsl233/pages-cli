@@ -8,6 +8,7 @@ const zip = require('gulp-zip')
 const gulpSequence = require('gulp-sequence')
 const del = require('del')
 const browserSync = require('browser-sync').create()
+const babel = require('gulp-babel')
 
 gulp.task('html', function () {
   const options = {
@@ -37,7 +38,9 @@ gulp.task('css', function () {
 
 gulp.task('js', function () {
   return gulp.src('./src/**/*.js')
-    .pipe(uglify())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(gulp.dest('dist'))
 });
 
